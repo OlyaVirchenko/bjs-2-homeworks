@@ -27,11 +27,42 @@ function solveEquation(a, b, c) {
 }
 
 
+"use strict";
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
-
   // код для задачи №2 писать здесь
+ amount  = totalAmount - contribution; 
 
+  let startDate = new Date();
+  let term = date - startDate;
+
+  contribution = totalAmount * (percent / 12 + (percent / 12 / (((1 + percent / 12) ** term) - 1)));
+
+ totalAmount = amount + contribution;
+  
   return totalAmount;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
