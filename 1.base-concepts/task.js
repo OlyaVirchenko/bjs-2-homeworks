@@ -1,26 +1,15 @@
 "use strict";
 
 function solveEquation(a, b, c) {
-  let arr;
+  let arr = [];
   // код для задачи №1 писать здесь
-  let discriminant = b * b - 4 * a * c;
+  const discriminant = b * b - 4 * a * c;
 
-  let x1;
-  let x2;
-
-  if (discriminant < 0) {
-    arr = [];
-
-  } else if (discriminant == 0) {
-    x1 = -b / (2 * a);
-
-    arr = [x1];
+  if (discriminant === 0) {
+    return [- b / (2 * a)];
 
   } else if (discriminant > 0) {
-    x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-    x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-
-    arr = [x1, x2];
+    return [(- b + Math.sqrt(discriminant)) / (2 * a), (- b - Math.sqrt(discriminant)) / (2 * a)];
   }
 
   return arr; // array
@@ -32,19 +21,23 @@ function solveEquation(a, b, c) {
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
   // код для задачи №2 писать здесь
+const parsed = parseInt(percent, contribution, amount, date);
+  
  amount  = totalAmount - contribution; 
 
-  let startDate = new Date();
-  let term = date - startDate;
+  let currentMonth = new Date().getMonth();
+  let currentYear = new Date().getFullYear();
+  let yearDifference = date.getFullYear() - currentYear;
+  let term = yearDifference * 12 - currentMonth + date.getMonth();
 
-  contribution = totalAmount * (percent / 12 + (percent / 12 / (((1 + percent / 12) ** term) - 1)));
+  let P = percent / 12 / 100;
+
+  contribution = totalAmount * (P + (P / (((1 + P) ** term) - 1)));
 
  totalAmount = amount + contribution;
   
   return totalAmount;
 }
-
-
 
 
 
