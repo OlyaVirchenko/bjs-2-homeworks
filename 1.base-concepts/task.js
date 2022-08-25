@@ -22,8 +22,9 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
   // код для задачи №2 писать здесь
 const parsed = parseInt(percent, contribution, amount, date);
+Number.isNaN(parsed);
   
- amount  = totalAmount - contribution; 
+ totalAmount  = amount - contribution; 
 
   let currentMonth = new Date().getMonth();
   let currentYear = new Date().getFullYear();
@@ -32,9 +33,8 @@ const parsed = parseInt(percent, contribution, amount, date);
 
   let P = percent / 12 / 100;
 
-  contribution = totalAmount * (P + (P / (((1 + P) ** term) - 1)));
+  contribution = (amount - contribution) * (P + (P / (((1 + P) ** term) - 1)));
 
- totalAmount = amount + contribution;
   
   return totalAmount;
 }
