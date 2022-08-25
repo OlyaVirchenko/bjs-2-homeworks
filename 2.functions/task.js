@@ -16,11 +16,9 @@ function getArrayParams(arr) {
     } else if (arr[i] < min) {
       min = arr[i];
       sum += arr[i];
-    } 
-
-    avg = Number((sum / arr.length).toFixed(2));
-    
+    }  
   }
+  avg = Number((sum / arr.length).toFixed(2));
 
   return { min: min, max: max, avg: avg };
 }
@@ -42,9 +40,9 @@ function makeWork(arrOfArr, func) {
 
   // Ваш код
   for (let i = 0; i < arrOfArr.length; i += 1) {
-   let sum = worker(arrOfArr[i]);
-   if (max < sum) {
-     max = sum;
+   let result = func(arrOfArr[i]);
+   if (max < result) {
+     max = result;
    }
   }
   
@@ -57,7 +55,9 @@ function worker2(arr) {
 
   let minInArr = Math.min(...arr);
   let maxInArr = Math.max(...arr);
-  console.log(Math.abs(minInArr - maxInArr));
+  difference = Math.abs(minInArr - maxInArr);
+
+  return difference;
 }
 
 
