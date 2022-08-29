@@ -11,13 +11,13 @@ function getArrayParams(arr) {
   for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] > max) {
       max = arr[i];
-      sum += arr[i];
-
     } else if (arr[i] < min) {
       min = arr[i];
-      sum += arr[i];
     }  
+    sum += arr[i];
   }
+
+
   avg = Number((sum / arr.length).toFixed(2));
 
   return { min: min, max: max, avg: avg };
@@ -55,9 +55,9 @@ function worker2(arr) {
 
   let minInArr = Math.min(...arr);
   let maxInArr = Math.max(...arr);
-  difference = Math.abs(minInArr - maxInArr);
+  Math.abs(minInArr - maxInArr);
 
-  return difference;
+  return difference = Math.abs(minInArr - maxInArr);
 }
 
 
