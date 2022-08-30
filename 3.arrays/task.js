@@ -1,18 +1,11 @@
 function compareArrays(arr1, arr2) {
   let result;
 
-  // Ваш код
-
-  for (let i = 0; i < arr1.length; i += 1) {
-    if (arr1[i] === arr2[i]) {
-      //сравить не только типы данных но и значения
-      result = true;
-    } else {
-      result = false;
+    for (i = 0; i < arr2.length; i += 1) {
+    result = arr1.every((n,i) => n === arr2[i])
     }
-  }
-
-  return result; // boolean
+    
+  return result
 }
 
 function advancedFilter(arr) {
