@@ -33,7 +33,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
  parseInt(date, 10);
 Number.isNaN(date);
   
- loanBody  = amount - contribution; 
+ let loanBody  = amount - contribution; 
 
    
 
@@ -44,7 +44,7 @@ Number.isNaN(date);
 
   let P = percent / 12 / 100;
 
-  oneContribution = (loanBody) * (P + (P / (((1 + P) ** term) - 1)));
+  let oneContribution = (loanBody) * (P + (P / (((1 + P) ** term) - 1)));
 
   totalAmount = Math.round(oneContribution * term); 
   
