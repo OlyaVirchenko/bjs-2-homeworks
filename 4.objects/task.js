@@ -17,14 +17,13 @@ Student.prototype.setSubject = function(subjectName) {
 
 Student.prototype.addMark = function(addMark) {
   //ваш код
-
   this.mark = addMark;
 
   if(this.marks === undefined){ 
-    this.marks = [];
-    // ОШИБКА this.marks.push(addMark);
+    let this.marks = [];
+    this.marks.push(this.mark);
     } else {
-      marks.push(mark) 
+    this.marks.push(this.mark);
     } 
 }
 
