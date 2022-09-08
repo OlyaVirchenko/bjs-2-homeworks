@@ -1,14 +1,47 @@
-ffunction Student(name, gender, age) {
+function Student(name, gender, age) {
   // Ваш код
+  this.name = name;
+  this.gender = gender;
+  this.age = age;
 }
 
-student1 = new Student("Жанна", "жен", 21);
-student2 = new Student("Игорь", "муж", 19);
-student3 = new Student("Валя", "жен", 18);
+let student1 = new Student("Жанна", "жен", 21);
+let student2 = new Student("Игорь", "муж", 19);
 
 Student.prototype.setSubject = function(subjectName) {
   //ваш код
-  console.log(subject)
+  this.subject = subjectName;
 }
 
 // ваш код для остальных методов
+
+Student.prototype.addMark = function(addMark) {
+  //ваш код
+
+  this.mark = addMark;
+
+  if(this.marks === undefined){ 
+    this.marks = [];
+    // ОШИБКА this.marks.push(addMark);
+    } else {
+      marks.push(mark) 
+    } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
