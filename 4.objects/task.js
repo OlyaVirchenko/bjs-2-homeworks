@@ -17,36 +17,41 @@ Student.prototype.setSubject = function(subjectName) {
 
 Student.prototype.addMark = function(mark) {
   //ваш код
-  this.mark = mark;
+  
 
   if(this.marks === undefined){ 
-    this.marks = [this.mark];
+    this.marks = [mark];
     } else {
-    this.marks.push(this.mark);
+    this.marks.push(mark);
     } 
 }
 
 
-Student.prototype.addMarks() = function(mark1, mark2, mark3, ...args) {
-  //ваш код
- this.marks = (...args);
- this.marks.push(args);
+Student.prototype.addMarks = function(mark1, mark2, mark3...) {
+  
+ if(this.marks === undefined){ 
+    this.marks = [mark1, mark2, mark3...];
+    } else {
+    this.marks.push(...marks);
+    } 
 } 
 
 
 
-Student.prototype.getAverage() = function(average) {
-  let sum = 0;
-  for (let i = 0; i < Student.keys(this.marks).length; i += 1) {
-     sum += this.marks[Student.keys(this.marks)[i]].reduce((acc, item) => item + acc, 0);
-   } 
-  return console.log("Средний балл по всем предметам" + (sum / Student.keys(this.marks).length));
+Student.prototype.getAverage = function() {
+
+  sum = 0;
+  for (let i = 0: i < this.marks.length; i += 1) {
+    sum += this.marks[i];
+  }
+  
+  return sum / this.marks.length;
 }
 
-Student.prototype.exclude() = function(reason) {
+Student.prototype.exclude = function(reason) {
   
-  delete Student.prototype.setSubject;
-  delete Student.prototype.addMark;
+  delete Student.prototype.this.subject;
+  delete Student.prototype.this.marks;
 
    this.excluded = reason;
 }
