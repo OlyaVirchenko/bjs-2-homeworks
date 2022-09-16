@@ -21,17 +21,25 @@ function solveEquation(a, b, c) {
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
   // код для задачи №2 писать здесь
- parseInt(percent, 10);
- Number.isNaN(percent);
 
- parseInt(contribution, 10);
- Number.isNaN(contribution);
+ if (Number.isNaN(percent)) {
+  parseInt(percent, 10);
+ }
 
- parseInt(amount, 10);
- Number.isNaN(amount);
 
- parseInt(date, 10);
-Number.isNaN(date);
+ if (Number.isNaN(contribution)) {
+  parseInt(contribution, 10);
+ }
+
+ if (Number.isNaN(amount)) {
+  parseInt(amount, 10);
+ }
+
+if (Number.isNaN(date)) {
+  parseInt(date, 10);
+ }
+
+
   
  let loanBody  = amount - contribution; 
 
@@ -46,9 +54,9 @@ Number.isNaN(date);
 
   let oneContribution = (loanBody) * (P + (P / (((1 + P) ** term) - 1)));
 
-  totalAmount = Math.round(oneContribution * term); 
+  totalAmount = oneContribution * term; 
   
-  return totalAmount;
+  return parceInt(totalAmount, 10).toFixed(2);
 }
 
 
