@@ -68,7 +68,9 @@ class DetectiveBook extends Book {
 class Library {
 	constructor(name) {
 		this.name = name;
+    const books = [];
 		this.book = books;
+		
 	}
 
 	addBook(book){
@@ -86,8 +88,10 @@ class Library {
 
 	giveBookByName(bookName) {
 		if (books.includes(this.bookName) = true) {
-
+      delete this.book
+      return this.book;
 		}
+    return null;
 	}
 }
 
