@@ -9,9 +9,9 @@ class PrintEditionItem {
     this.type = null;
   }  
 
-  fix() {return this.state * 1,5;}
+  fix() {return this.state * 1,5}
 
-  set newState(number) {
+  set newState(state) {
   	if (this.state < 0) {
   		return this.state = 0;
   	} else if (this.staste > 100) {
@@ -65,33 +65,38 @@ class DetectiveBook extends Book {
 
 //Задача 2
 
+
 class Library {
+	
 	constructor(name) {
 		this.name = name;
-    const books = [];
-		this.book = books;
+    
+		this.books = [];
 		
 	}
 
 	addBook(book){
 		if (this.state > 30){
-			books.push(book);
+			this.books.push(book);
 		}
 	}
 
 	findBookBy(type, value) {
-		if (books.includes(this.type, this.value) = true) {
+		if (this.books.includes(type, value) = true) {
 			return this.book;
 		}
 		return null;
 	}
 
 	giveBookByName(bookName) {
-		if (books.includes(this.bookName) = true) {
-      delete this.book
-      return this.book;
+		let book = this.books.find(book => book.name ===bookName);
+
+		if (book === undefined) {
+			return null
+		} else {
+			this.books.splice(this.books.indexOf(book), 1);
+			return book
 		}
-    return null;
 	}
 }
 
