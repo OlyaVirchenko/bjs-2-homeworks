@@ -1,8 +1,8 @@
 class AlarmClock {
 	
-	constructor(alarmCollection = [], timerID = null) {
-		this.alarmCollection = alarmCollection;
-		this.timerId = timerID;
+	constructor() {
+		this.alarmCollection = [];
+		this.timerID = null;
 	}
 
 	addClock(time, callback, id) {
@@ -21,18 +21,18 @@ class AlarmClock {
 	removeClock(id) {
 		const result = this.alarmCollection
 
-		this.alarmCollection = this.alarmCollection.filter(item.id !== id);
+		this.alarmCollection = this.alarmCollection.filter(item => item.id !== id);
 
 		return result.length != this.alarmCollection.length;
 
 	}
 
 	getCurrentFormattedTime() {
-		const currentDate = new Date;
-		const hours = currentDate.getHours();
-        const minutes = currentDate.getMinutes();
 
-		return hours + ':' + minutes
+      return new Date().toLocaleTimeString("ru-Ru", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 	}
 
 	start() {
@@ -46,14 +46,14 @@ class AlarmClock {
 
 		if (timerId === null) {
 			this.timerId = setInterval(() => {
-				(this.alarmCollection.forEach((item) => checkClock(item)))
+				this.alarmCollection.forEach((item) => checkClock(item))
 			}, 1000)
 		}
 	}
 
 	stop() {
 		if (this.timerId !=== null) {
-			this.timerId.clearInterval();
+			clearInterval(this.timerId);
 			this.timerId = null;
 		}
 	}
@@ -71,11 +71,11 @@ class AlarmClock {
 
 function testCase() {
 	let phoneAlaram = new AlarmClock();
-    let time = getCurrentFormattedTime()
+  let time = phoneAlaram.getCurrentFormattedTime();
 
-    let timePlusMinute = (hours + ':' + (minutes + 1))
+  let timePlusMinute = (getHours() + ':' + (getMinutes() + 1))
 
-    et timePlusTwoMinute = (hours + ':' + (minutes + 2))
+  let timePlusTwoMinute = (getHours() + ':' + (getMinutes() + 2))
 
 	phoneAlarm.addClock(time, () => console.log('Пора вставать'), 1)
 
@@ -89,6 +89,21 @@ function testCase() {
 		phoneAlaram.clearAlarms();
 		phoneAlaram.printAlarms();
 	}, 3)
+
+
+function getHours() {
+  let hours = new Date().toLocaleTimeString("ru-Ru", {
+    hour: "2-digit"
+  });
+  return Number(hours);
+}
+
+function getMinutes() {
+  let minutes = new Date().toLocaleTimeString("ru-Ru", {
+    minute: "2-digit"
+  });
+  return Number(minutes);
+}  
 
 	phoneAlaram.printAlarms();
 	phoneAlaram.start()
