@@ -12,9 +12,9 @@ const cache = [];
     }
 
     let result = func(...args);
-    wrapper.cache.push({hash: hash, value: objectInCache})
-    if (wrapper.cache.length > 5) {
-      wrapper.cache.shift()
+    cache.push({hash: hash, value: objectInCache})
+    if (cache.length > 5) {
+      cache.shift()
     }
     console.log("Вычисляем: " + result);
     return "Вычисляем: " + result;  
@@ -24,34 +24,22 @@ const cache = [];
 
 
 function debounceDecoratorNew(func,delay) {
-   let timeId = null;
-   let timeCall;
-   let timeStart = performance.now();
-   let flug = null;
-   let timePreviousCall = 0;
- 
+
+  wrapper.count += 1
+   
   function wrapper(...args) {
-    timeCall = Math.floor(performance.now() - timeStart)
-    if (flug === null) {
-      console.log(finc(...args))
-      flag = false
-      timeId = setTimeout(() => flug = true, 2000)
-    } else if (!flug) {
-      if (timePreviousCall < 99) {
-        timePreviousCall = 0
-      } else {
-        clearTimeout(timeId);
-        timeId = setTimeout(() => flug = true, 2000)
-      }
-    } else if (flug) {
-      setTimeout(() => console.log(func(..args)), delay)
+    if ( wrapper.count = 1) {
+     delay = 0;
     }
-    timePreviousCall = timeCall
-    wrapper.count += 1
+    
+    setTimeout(() => console.log(func(...args)), delay);
   }
+
+
   wrapper.count = 0
   return wrapper;
 }
+
 
 
 
