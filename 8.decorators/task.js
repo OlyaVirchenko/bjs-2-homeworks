@@ -39,7 +39,7 @@ function debounceDecoratorNew(func,delay) {
      wrapper.count += 1;
     }
     
-    const timerId = setTimeout(() {
+    const timerId = setTimeout(() => {
       func(...args);
       wrapper.count += 1;
     }, delay);
